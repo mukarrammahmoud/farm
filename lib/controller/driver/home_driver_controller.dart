@@ -6,8 +6,14 @@ abstract class HomeDriverController extends GetxController {
 }
 
 class HomeDriverControllerImp extends HomeDriverController {
+  int index = 0;
   @override
   goToTrackingDemand() {
     Get.toNamed(AppRout.trackingDemand);
+  }
+
+  updateIndex(int inx) {
+    index = inx;
+    update();
   }
 }

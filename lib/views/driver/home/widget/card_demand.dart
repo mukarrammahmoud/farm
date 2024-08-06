@@ -30,7 +30,7 @@ class CardDemand extends StatelessWidget {
               ContainerLog(
                 widthButton: 110,
                 onPressed: onPressedCancel,
-                title: "إلغاء",
+                title: "تم",
                 fontSize: 11,
               ),
             ],
