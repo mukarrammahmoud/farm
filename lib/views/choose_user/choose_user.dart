@@ -37,7 +37,9 @@ class ChooseUser extends StatelessWidget {
                     ],
                   ),
                   CardChoosingUser(
-                    onTap: () {},
+                    onTap: () {
+                      controller.goToFarmerPage();
+                    },
                     imagePath: "assets/images/Farmer.png",
                     title: "مزارع",
                     description: "توريد المنتجات الزراعية للتجار والمستهلكين",

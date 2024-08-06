@@ -1,4 +1,4 @@
-import 'package:farm/controller/auth/login_controller.dart';
+import 'package:farm/controller/driver/auth/login_controller.dart';
 import 'package:farm/core/constant/colors.dart';
 import 'package:farm/core/constant/components/custom_text.dart';
 import 'package:farm/views/driver/auth/widget/container_log.dart';
@@ -48,8 +48,14 @@ class ContainerAuthField extends StatelessWidget {
           },
           icon: IconButton(
             icon: controller.isShowPassword
-                ? const Icon(Icons.visibility)
-                : const Icon(Icons.visibility_off),
+                ? const Icon(
+                    Icons.visibility,
+                    color: AppColors.greenText,
+                  )
+                : const Icon(
+                    Icons.visibility_off,
+                    color: AppColors.greenText,
+                  ),
             onPressed: () {
               controller.showPassword();
             },

@@ -8,4 +8,5 @@ class AppColors {
   static const Color containerAuthColor = Color(0xffF0F4F0);
   static const Color white = Color(0xffFfFfFf);
   static const Color buttonColor = Color(0xffA7CA9A);
+  static const Color textNamerpodectColor = Color(0xff6D3805);
 }//A7CA9A

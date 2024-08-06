@@ -31,12 +31,14 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       child: TextFormField(
+        textDirection: TextDirection.rtl,
         autofocus: autoFoucs,
         controller: controller,
         keyboardType: keyboardType,
         validator: validate,
         obscureText: isVissabileContent,
         decoration: InputDecoration(
+            hintTextDirection: TextDirection.rtl,
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 10, vertical: padding),
             hintText: hintText,
@@ -44,8 +46,11 @@ class CustomTextField extends StatelessWidget {
                 const TextStyle(color: AppColors.greenText, fontSize: 15),
             fillColor: AppColors.white,
             filled: true,
-            suffix: icon,
-            prefixIcon: iconPrifex,
+            prefix: icon,
+
+            // prefixStyle: const TextStyle(color: AppColors.greenText),
+            suffixIcon: iconPrifex,
+            suffixIconColor: AppColors.greenText,
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(

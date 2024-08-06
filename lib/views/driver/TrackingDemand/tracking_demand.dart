@@ -2,7 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:farm/core/constant/colors.dart';
 import 'package:farm/views/driver/home/widget/icon_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:step_tracker/step_tracker.dart';
+import 'package:easy_stepper/easy_stepper.dart';
 
 class TrackingDemand extends StatelessWidget {
   const TrackingDemand({super.key});
@@ -38,102 +38,103 @@ class TrackingDemand extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           // mainAxisAlignment: MainAxisAlignment.end,
-          children: const [
+          children: [
             Padding(
-                padding: EdgeInsets.all(40.0),
-                child: StepTracker(
-                  dotSize: 20,
-                  circleSize: 50,
-                  selectedColor: Colors.green,
-                  unSelectedColor: Colors.red,
-                  stepTrackerType: StepTrackerType.indexedVertical,
-                  pipeSize: 160,
-                  steps: [
-                    Steps(
-                        description: "",
-                        title: Text("الطلب قيد التجهيز"),
-                        state: TrackerState.none),
-                    Steps(
-                        title: Text("تم الشحن"), state: TrackerState.complete),
-                    Steps(
-                        title: Text("الطلب في الطريق "),
-                        state: TrackerState.disabled),
-                    Steps(
-                        title: Text("تم التسليم"),
-                        state: TrackerState.disabled),
-                  ],
-                )
+              padding: const EdgeInsets.all(40.0),
+              child:
+                  // StepTracker(
+                  //   dotSize: 20,
+                  //   circleSize: 50,
+                  //   selectedColor: Colors.green,
+                  //   unSelectedColor: Colors.red,
+                  //   stepTrackerType: StepTrackerType.indexedVertical,
+                  //   pipeSize: 160,
+                  //   steps: [
+                  //     Steps(
+                  //         description: "",
+                  //         title: Text("الطلب قيد التجهيز"),
+                  //         state: TrackerState.none),
+                  //     Steps(
+                  //         title: Text("تم الشحن"), state: TrackerState.complete),
+                  //     Steps(
+                  //         title: Text("الطلب في الطريق "),
+                  //         state: TrackerState.disabled),
+                  //     Steps(
+                  //         title: Text("تم التسليم"),
+                  //         state: TrackerState.disabled),
+                  //   ],
+                  // )
 
-                // EasyStepper(
-                //     disableScroll: false,
-                //     activeStepBackgroundColor: AppColors.greyText,
-                //     finishedStepBackgroundColor: AppColors.buttonColor,
-                //     unreachedStepBackgroundColor: AppColors.greyText,
-                //     alignment: Alignment.centerRight,
-                //     direction: Axis.vertical,
-                //     textDirection: TextDirection.rtl,
+                  EasyStepper(
+                      disableScroll: false,
+                      activeStepBackgroundColor: AppColors.greyText,
+                      finishedStepBackgroundColor: AppColors.buttonColor,
+                      unreachedStepBackgroundColor: AppColors.greyText,
+                      alignment: Alignment.centerRight,
+                      direction: Axis.vertical,
+                      textDirection: TextDirection.rtl,
 
-                //     // showTitle: false,
-                //     activeStep: 1,
-                //     showScrollbar: true,
-                //     activeStepTextColor: AppColors.black,
-                //     finishedStepTextColor: AppColors.black,
-                //     internalPadding: 0,
-                //     showLoadingAnimation: false,
-                //     stepRadius: 30,
-                //     showStepBorder: true,
-                //     steps: [
-                //       EasyStep(
-                //         topTitle: false,
-                //         customStep: ClipRRect(
-                //           borderRadius: BorderRadius.circular(10),
-                //           child: Image.asset(
-                //             "assets/images/file-plus-02.png",
-                //             fit: BoxFit.cover,
-                //           ),
-                //         ),
-                //         title: 'الطلب قيد التجهيز',
-                //       ),
-                //       EasyStep(
-                //         topTitle: false,
-                //         customStep: ClipRRect(
-                //           borderRadius: BorderRadius.circular(10),
-                //           child: Image.asset(
-                //             "assets/images/package-check.png",
-                //             fit: BoxFit.cover,
-                //           ),
-                //         ),
-                //         title: 'تم الشحن ',
-                //       ),
-                //       EasyStep(
-                //         topTitle: false,
-                //         customStep: ClipRRect(
-                //           borderRadius: BorderRadius.circular(10),
-                //           child: Image.asset(
-                //             "assets/images/truck.png",
-                //             fit: BoxFit.cover,
-                //           ),
-                //         ),
-                //         title: 'الطلب في الطريق',
-                //       ),
-                //       EasyStep(
-                //         topTitle: false,
-                //         customStep: ClipRRect(
-                //           borderRadius: BorderRadius.circular(10),
-                //           child: Image.asset(
-                //             "assets/images/check-contained.png",
-                //             fit: BoxFit.cover,
-                //           ),
-                //         ),
-                //         title: 'تم التسليم',
-                //       ),
-                //     ],
-                //     onStepReached: (index) {
-                //       print(index);
-                //     }
-                //     // setState(() => activeStep = index),
-                //     ),
-                ),
+                      // showTitle: false,
+                      activeStep: 1,
+                      showScrollbar: true,
+                      activeStepTextColor: AppColors.black,
+                      finishedStepTextColor: AppColors.black,
+                      internalPadding: 0,
+                      showLoadingAnimation: false,
+                      stepRadius: 30,
+                      showStepBorder: true,
+                      steps: [
+                        EasyStep(
+                          topTitle: false,
+                          customStep: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              "assets/images/file-plus-02.png",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          title: 'الطلب قيد التجهيز',
+                        ),
+                        EasyStep(
+                          topTitle: false,
+                          customStep: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              "assets/images/package-check.png",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          title: 'تم الشحن ',
+                        ),
+                        EasyStep(
+                          topTitle: false,
+                          customStep: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              "assets/images/truck.png",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          title: 'الطلب في الطريق',
+                        ),
+                        EasyStep(
+                          topTitle: false,
+                          customStep: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              "assets/images/check-contained.png",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          title: 'تم التسليم',
+                        ),
+                      ],
+                      onStepReached: (index) {
+                        print(index);
+                      }
+                      // setState(() => activeStep = index),
+                      ),
+            ),
           ],
         ),
       ),

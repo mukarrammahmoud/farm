@@ -1,4 +1,4 @@
-import 'package:farm/controller/auth/password_forget.dart';
+import 'package:farm/controller/driver/auth/password_forget.dart';
 import 'package:farm/core/constant/colors.dart';
 import 'package:farm/core/constant/components/custom_text.dart';
 import 'package:farm/views/driver/auth/widget/container_log.dart';

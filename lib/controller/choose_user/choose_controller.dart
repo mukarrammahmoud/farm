@@ -13,5 +13,7 @@ class ChooseControllerImp extends ChooseController {
   }
 
   @override
-  goToFarmerPage() {}
+  goToFarmerPage() {
+    Get.offNamed(AppRout.loginFarmer);
+  }
 }

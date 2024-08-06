@@ -6,6 +6,9 @@ import 'package:farm/views/driver/change_pass/change_password.dart';
 import 'package:farm/views/driver/forget_password/forget_password.dart';
 import 'package:farm/views/driver/home/home_page_driver.dart';
 import 'package:farm/views/driver/home/profile.dart';
+import 'package:farm/views/farmer/add_prodect/add_prodect_page.dart';
+import 'package:farm/views/farmer/auth/login_page.dart';
+import 'package:farm/views/farmer/home/home_farmer.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 List<GetPage<dynamic>>? routes = [
@@ -16,4 +19,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRout.restPassword, page: () => const ChangePassword()),
   GetPage(name: AppRout.trackingDemand, page: () => const TrackingDemand()),
   GetPage(name: AppRout.profileDriver, page: () => const ProfileDriver()),
+  GetPage(name: AppRout.loginFarmer, page: () => const LoginFarmer()),
+  GetPage(name: AppRout.homeFarmer, page: () => const HomeFarmer()),
+  GetPage(name: AppRout.addProdectPage, page: () => const AddProdectPage()),
 ];
