@@ -1,172 +1,59 @@
-// import 'package:farm/controller/farmer/add_prodect_controller.dart';
-// import 'package:farm/core/constant/colors.dart';
-// import 'package:floating_action_bubble/floating_action_bubble.dart';
-// import 'package:flutter/material.dart';
-
-// class CustomFloatingActionButton extends StatefulWidget {
-//   const CustomFloatingActionButton({
-//     super.key,
-//     required this.controller,
-//   });
-//   final AddprodectControllerImp controller;
-
-//   @override
-//   State<CustomFloatingActionButton> createState() =>
-//       _CustomFloatingActionButtonState();
-// }
-
-// class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
-//     with SingleTickerProviderStateMixin {
-//   late Animation<double> _animation;
-//   late AnimationController _animationController;
-
-//   @override
-//   void initState() {
-//     _animationController = AnimationController(
-//       vsync: this,
-//       duration: const Duration(milliseconds: 260),
-//     );
-
-//     final curvedAnimation =
-//         CurvedAnimation(curve: Curves.easeInOut, parent: _animationController);
-//     _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
-
-//     super.initState();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return FloatingActionBubble(
-//         backGroundColor: AppColors.buttonColor,
-//         // Menu items
-//         iconColor: AppColors.black,
-//         animation: _animation,
-//         onPress: () {},
-//         items: <Bubble>[
-//           // Floating action menu item
-//           Bubble(
-//             title: "Settings",
-//             iconColor: Colors.white,
-//             bubbleColor: Colors.blue,
-//             icon: Icons.settings,
-//             titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
-//             onPress: () {
-//               // _animationController.reverse();
-//             },
-//           ),
-//           // Floating action menu item
-//           Bubble(
-//             title: "Profile",
-//             iconColor: Colors.white,
-//             bubbleColor: Colors.blue,
-//             icon: Icons.people,
-//             titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
-//             onPress: () {
-//               _animationController.reverse();
-//             },
-//           ),
-//         ]);
-
-//     // FloatingActionButton(
-//     //   backgroundColor: AppColors.greenText,
-//     //   child: const Icon(Icons.add_circle_outline),
-//     //   onPressed: () {},
-//     // );
-//   }
-// }
-
-import 'package:floating_action_bubble/floating_action_bubble.dart';
+import 'package:animated_floating_buttons/widgets/animated_floating_action_button.dart';
+import 'package:farm/core/constant/colors.dart';
+import 'package:farm/views/farmer/add_prodect/widgets/custom_container_add_project.dart';
 import 'package:flutter/material.dart';
 
-class CustomFloatingActionButton extends StatefulWidget {
+class CustomFloatingActionButton extends StatelessWidget {
   const CustomFloatingActionButton({super.key});
 
   @override
-  _CustomFloatingActionButtonState createState() =>
-      _CustomFloatingActionButtonState();
-}
-
-class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
-    with SingleTickerProviderStateMixin {
-  late Animation<double> _animation;
-  late AnimationController _animationController;
-
-  @override
-  void initState() {
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 260),
-    );
-
-    final curvedAnimation =
-        CurvedAnimation(curve: Curves.easeInOut, parent: _animationController);
-    _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
-
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text(""),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+    final GlobalKey<AnimatedFloatingActionButtonState> key =
+        GlobalKey<AnimatedFloatingActionButtonState>();
 
-        //Init Floating Action Bubble
-        floatingActionButton: FloatingActionBubble(
-          // Menu items
-          items: <Bubble>[
-            // Floating action menu item
-            Bubble(
-              title: "Settings",
-              iconColor: Colors.white,
-              bubbleColor: Colors.blue,
-              icon: Icons.settings,
-              titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
-              onPress: () {
-                _animationController.reverse();
-              },
+    return AnimatedFloatingActionButton(
+        curve: Curves.easeInCirc,
+        //Fab list
+        fabButtons: <Widget>[
+          const SizedBox(),
+          SizedBox(
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                const SizedBox(),
+                Positioned(
+                  bottom: -10,
+                  right: 10,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.greyText.withOpacity(0.4),
+                          offset: const Offset(4.2, 4.2),
+                          blurStyle: BlurStyle.solid,
+                          spreadRadius: 0.3,
+                        ),
+                        // const BoxShadow(color: AppColors.greyText),
+                      ],
+                      borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(50),
+                        topLeft: Radius.circular(50),
+                        topRight: Radius.circular(50),
+                      ),
+                      color: AppColors.white,
+                    ),
+                    width: 300,
+                    child: const CustomContainerAddProdect(),
+                  ),
+                ),
+              ],
             ),
-            // Floating action menu item
-            Bubble(
-              title: "Profile",
-              iconColor: Colors.white,
-              bubbleColor: Colors.blue,
-              icon: Icons.people,
-              titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
-              onPress: () {
-                _animationController.reverse();
-              },
-            ),
-            //Floating action menu item
-            Bubble(
-              title: "Home",
-              iconColor: Colors.white,
-              bubbleColor: Colors.blue,
-              icon: Icons.home,
-              titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
-              onPress: () {
-                // Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) => Homepage()));
-                // _animationController.reverse();
-              },
-            ),
-          ],
-
-          // animation controller
-          animation: _animation,
-
-          // On pressed change animation state
-          onPress: () => _animationController.isCompleted
-              ? _animationController.reverse()
-              : _animationController.forward(),
-
-          // Floating Action button Icon color
-          iconColor: Colors.blue,
-
-          // Flaoting Action button Icon
-          iconData: Icons.ac_unit,
-          backGroundColor: Colors.white,
-        ));
+          ),
+        ],
+        key: key,
+        colorStartAnimation: AppColors.greenText,
+        colorEndAnimation: Colors.red,
+        animatedIconData: AnimatedIcons.add_event //To principal button
+        );
   }
 }

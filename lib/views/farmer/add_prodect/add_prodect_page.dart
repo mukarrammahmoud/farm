@@ -16,6 +16,7 @@ class AddProdectPage extends StatelessWidget {
 
     return GetBuilder<AddprodectControllerImp>(builder: (controller) {
       return Scaffold(
+        backgroundColor: const Color(0xffF5F5F5),
         endDrawer: const CustomDrawer(),
         appBar: AppBar(
           foregroundColor: AppColors.greenText,

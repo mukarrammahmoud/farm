@@ -15,10 +15,11 @@ class CustomTextField extends StatelessWidget {
     required this.validate,
     required this.controller,
     this.autoFoucs = false,
+    this.fillColor = AppColors.white,
   });
   final Widget? icon;
   final Widget? iconPrifex;
-
+  final Color fillColor;
   final String hintText;
   final bool isVissabileContent;
   final bool autoFoucs;
@@ -42,9 +43,8 @@ class CustomTextField extends StatelessWidget {
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 10, vertical: padding),
             hintText: hintText,
-            hintStyle:
-                const TextStyle(color: AppColors.greenText, fontSize: 15),
-            fillColor: AppColors.white,
+            hintStyle: const TextStyle(color: AppColors.greyText, fontSize: 15),
+            fillColor: fillColor,
             filled: true,
             prefix: icon,
 

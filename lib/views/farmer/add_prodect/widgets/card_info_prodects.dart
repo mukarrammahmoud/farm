@@ -24,7 +24,7 @@ class CardInfoProdects extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
+      elevation: 2,
       margin: const EdgeInsets.all(19),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -60,7 +60,6 @@ class CardInfoProdects extends StatelessWidget {
                       activeTrackColor: AppColors.greenText,
                       value: controller.isEnableProdect,
                       onChanged: (value) {
-
                         controller.enableProdect(value, index);
                       },
                     )

@@ -1,4 +1,3 @@
-import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 
 abstract class AddProdectController extends GetxController {
@@ -19,7 +18,7 @@ class AddprodectControllerImp extends AddProdectController {
      super.onInit();// TickerProvider هنا);
   }
 
-  bool isEnableProdect = false;
+  bool isEnableProdect = true;
   int index = 0;
   List listInfoProddect = [
     {

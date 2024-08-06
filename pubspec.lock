@@ -25,6 +25,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.13.0"
+  animated_fab_button_menu:
+    dependency: "direct main"
+    description:
+      name: animated_fab_button_menu
+      sha256: "3d942e509264fac1072507308254bb0693cb13a8faeba36563ffdfed1f63c9a0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
+  animated_floating_buttons:
+    dependency: "direct main"
+    description:
+      name: animated_floating_buttons
+      sha256: cd89653ab917fb0d7ab04d5b5d6807c75de3f002de99b10f63fcf3c5c7133d60
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   animated_splash_screen:
     dependency: "direct main"
     description:

@@ -49,6 +49,8 @@ dependencies:
   step_tracker:
   easy_stepper: 
   floating_action_bubble: 
+  animated_fab_button_menu: 
+  animated_floating_buttons:
   get:
   animated_splash_screen: ^1.3.0
 
