@@ -5,6 +5,7 @@ import 'package:farm/views/driver/auth/login.dart';
 import 'package:farm/views/driver/change_pass/change_password.dart';
 import 'package:farm/views/driver/forget_password/forget_password.dart';
 import 'package:farm/views/driver/home/home_page_driver.dart';
+import 'package:farm/views/driver/home/profile.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 List<GetPage<dynamic>>? routes = [
@@ -14,4 +15,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRout.forgetPassword, page: () => const ForgetPassword()),
   GetPage(name: AppRout.restPassword, page: () => const ChangePassword()),
   GetPage(name: AppRout.trackingDemand, page: () => const TrackingDemand()),
+  GetPage(name: AppRout.profileDriver, page: () => const ProfileDriver()),
 ];

@@ -26,22 +26,23 @@ class HomePageDriver extends StatelessWidget {
           centerTitle: true,
           title: Image.asset(
             "assets/images/bigcart.png",
-            height: 40,
-            width: 75,
+            height: 50,
+            width: 100,
           ),
           leading: ClipRRect(
             borderRadius: BorderRadius.circular(50),
-            child: Image.asset(
-              "assets/images/man.png",
-              height: 30,
-              width: 50,
+            child: InkWell(
+              onTap: () {
+                controller.goToProfileDriver();
+              },
+              child: Image.asset(
+                "assets/images/man.png",
+                height: 30,
+                width: 50,
+              ),
             ),
           ),
         ),
-        //  PreferredSize(
-        //   preferredSize: Size(width, height),
-        //   child: const CustomAppBar(),
-        // ),
         bottomNavigationBar: CurvedNavigationBar(
             letIndexChange: (value) {
               return true;
