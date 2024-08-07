@@ -1,43 +1,42 @@
-import 'package:farm/controller/farmer/add_prodect_controller.dart';
+import 'package:farm/controller/farmer/add_sale_controller.dart';
 import 'package:farm/core/constant/colors.dart';
 import 'package:farm/core/constant/components/custom_text.dart';
-import 'package:farm/views/farmer/add_prodect/widgets/card_info_prodects.dart';
-import 'package:farm/views/farmer/add_prodect/widgets/custom_floatin_button.dart';
+import 'package:farm/views/farmer/add_sale/widget/card_info_prodects.dart';
+import 'package:farm/views/farmer/add_sale/widget/custom_floatin_button.dart';
 import 'package:farm/views/farmer/home/widgets/custom_drower.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AddProdectPage extends StatelessWidget {
-  const AddProdectPage({super.key});
+class AddSalePage extends StatelessWidget {
+  const AddSalePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => AddprodectControllerImp());
+    Get.lazyPut(() => AddSaleControllerImp());
 
-    return GetBuilder<AddprodectControllerImp>(builder: (controller) {
+    return GetBuilder<AddSaleControllerImp>(builder: (controller) {
       return Scaffold(
         backgroundColor: const Color(0xffF5F5F5),
         endDrawer: const CustomDrawer(),
-        appBar: AppBar(
-          foregroundColor: AppColors.greenText,
-          centerTitle: true,
-          title: CustomText(
-            fontSize: 15,
-            title: controller.titleAppBar,
-          ),
-        ),
-        floatingActionButton: CustomFloatingActionButton(
+        floatingActionButton: CustomFloatingActionButtonSale(
           controller: controller,
           date: controller.date,
-        
           farnmerName: controller.farmerName,
           keyAnimation: controller.key,
           prodectDesc: controller.prodectDesc,
           title: controller.title,
         ),
+        appBar: AppBar(
+          foregroundColor: AppColors.greenText,
+          centerTitle: true,
+          title: CustomText(
+            title: controller.titleAppBar,
+            fontSize: 16,
+          ),
+        ),
         body: ListView.builder(
           itemCount: controller.listInfoProddect.length,
-          itemBuilder: (context, index) => CardInfoProdects(
+          itemBuilder: (context, index) => CardInfoProdectsSal(
             controller: controller,
             index: index,
             date: controller.listInfoProddect[index]["date"],

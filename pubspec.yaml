@@ -47,10 +47,12 @@ dependencies:
   location:
   latlong2:
   step_tracker:
-  easy_stepper: 
-  floating_action_bubble: 
-  animated_fab_button_menu: 
+  easy_stepper:
+  image_picker: ^1.0.7 
+  # floating_action_bubble: 
+  # animated_fab_button_menu: 
   animated_floating_buttons:
+  intl:
   get:
   animated_splash_screen: ^1.3.0
 

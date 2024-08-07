@@ -15,4 +15,8 @@ class AppRout {
   static const String loginFarmer = "/loginFarmer";
   static const String homeFarmer = "/homeFarmer";
   static const String addProdectPage = "/addProdectPage";
+  static const String addSalePage = "/addSalePage";
+  static const String truckingDriver = "/truckingDriver";
+  static const String comments = "/comments";
+  static const String showProdect = "/showProdect";
 }

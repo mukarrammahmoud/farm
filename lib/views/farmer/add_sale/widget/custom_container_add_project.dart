@@ -1,12 +1,12 @@
-import 'package:farm/controller/farmer/add_prodect_controller.dart';
+import 'package:farm/controller/farmer/add_sale_controller.dart';
 import 'package:farm/core/constant/colors.dart';
 import 'package:farm/core/constant/components/custom_text.dart';
 import 'package:farm/views/driver/auth/widget/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class CustomContainerAddProdect extends StatelessWidget {
-  const CustomContainerAddProdect({
+class CustomContainerAddProdectSale extends StatelessWidget {
+  const CustomContainerAddProdectSale({
     super.key,
     required this.date,
     required this.controller,
@@ -20,7 +20,7 @@ class CustomContainerAddProdect extends StatelessWidget {
   final String title;
   final TextEditingController prodectDesc;
   final TextEditingController? day;
-  final AddprodectControllerImp controller;
+  final AddSaleControllerImp controller;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,7 +43,7 @@ class CustomContainerAddProdect extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                   child: controller.myFile == null
                       ? Image.asset(
-                          "assets/images/broccoli.png",
+                          "assets/images/apple.png",
                           height: 200,
                           width: 200,
                           fit: BoxFit.cover,
@@ -122,6 +122,16 @@ class CustomContainerAddProdect extends StatelessWidget {
             return null;
           },
           controller: prodectDesc,
+        ),
+        CustomTextField(
+          fillColor: AppColors.fiilColorTextField,
+          iconPrifex: const Icon(Icons.edit),
+          hintText: "عرض اليوم",
+          isVissabileContent: false,
+          validate: (val) {
+            return null;
+          },
+          controller: day,
         ),
       ],
     );

@@ -1,16 +1,15 @@
 import 'package:animated_floating_buttons/widgets/animated_floating_action_button.dart';
-import 'package:farm/controller/farmer/add_prodect_controller.dart';
+import 'package:farm/controller/farmer/add_sale_controller.dart';
 import 'package:farm/core/constant/colors.dart';
-import 'package:farm/views/farmer/add_prodect/widgets/custom_container_add_project.dart';
+import 'package:farm/views/farmer/add_sale/widget/custom_container_add_project.dart';
 import 'package:flutter/material.dart';
 
-class CustomFloatingActionButton extends StatelessWidget {
-  const CustomFloatingActionButton({
+class CustomFloatingActionButtonSale extends StatelessWidget {
+  const CustomFloatingActionButtonSale({
     super.key,
     required this.controller,
     required this.keyAnimation,
     required this.date,
-   
     required this.farnmerName,
     required this.prodectDesc,
     required this.title,
@@ -20,7 +19,7 @@ class CustomFloatingActionButton extends StatelessWidget {
   final String title;
   final TextEditingController prodectDesc;
 
-  final AddprodectControllerImp controller;
+  final AddSaleControllerImp controller;
   final GlobalKey<AnimatedFloatingActionButtonState> keyAnimation;
   @override
   Widget build(BuildContext context) {
@@ -48,10 +47,9 @@ class CustomFloatingActionButton extends StatelessWidget {
               color: AppColors.white,
             ),
             width: 300,
-            child: CustomContainerAddProdect(
+            child: CustomContainerAddProdectSale(
                 controller: controller,
                 date: date,
-               
                 farnmerName: farnmerName,
                 prodectDesc: prodectDesc,
                 title: title),

@@ -32,8 +32,20 @@ class HomeFarmerControllerImp extends HomeFarmerController {
 
   @override
   navigateToScreens(int index) {
+    if (index == 0) {
+      Get.toNamed(AppRout.showProdect);
+    }
+    if (index == 1) {
+      Get.toNamed(AppRout.addSalePage);
+    }
     if (index == 2) {
       Get.toNamed(AppRout.addProdectPage);
+    }
+    if (index == 3) {
+      Get.toNamed(AppRout.comments);
+    }
+    if (index == 4) {
+      Get.toNamed(AppRout.truckingDriver);
     }
   }
 }

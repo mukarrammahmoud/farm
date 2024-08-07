@@ -7,41 +7,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-abstract class AddProdectController extends GetxController {
-  goToEditProdect();
+abstract class AddSaleController extends GetxController {
+  goToEditProdectSal();
   showDateDialog(BuildContext context);
   chooseImage(BuildContext context);
 }
 
-class AddprodectControllerImp extends AddProdectController {
+class AddSaleControllerImp extends AddSaleController {
+  final String titleAppBar = "العروض";
   final GlobalKey<AnimatedFloatingActionButtonState> key =
       GlobalKey<AnimatedFloatingActionButtonState>();
   late TextEditingController farmerName;
   late TextEditingController prodectDesc;
-
+  late TextEditingController daysall;
   late String date;
-  final String title = "ادرج منتج جديد";
+  final String title = "ادراج عرض  جديد";
   late DateTime selectDate;
   File? myFile;
-  // Get.lazyPut(() => AnimationService());
-  // final AnimationService animationService = Get.put(AnimationService());
-  // late Animation<double> animation;
-  // late AnimationController animationController;
-
-  @override
-  void onInit() {
-    selectDate = DateTime.now();
-    prodectDesc = TextEditingController();
-
-    farmerName = TextEditingController();
-    date = DateTime.now().toString();
-   
-
-    super.onInit(); 
-  }
-
   bool isEnableProdect = true;
-  int index = 0;
   List listInfoProddect = [
     {
       "id": 0,
@@ -54,24 +37,14 @@ class AddprodectControllerImp extends AddProdectController {
     },
     {
       "id": 1,
-      "image": "assets/images/apple.png",
+      "image": "assets/images/broccoli.png",
       "nameFarmer": "مزرعة محمد علي",
-      "nameProdect": "تفاح احمر ",
+      "nameProdect": "كرفس",
       "date": " 2-5-2024",
       "description":
           "قطوف التفاح  بشكلها المميز الطازج وطعمها اللذيذ وهذا بجانب احتوائها على العديد من الفيتامينات والعناصر المغذية لصحة الجسم"
     },
   ];
-
-  final String titleAppBar = "إضافة المنتجات ";
-
-  @override
-  goToEditProdect() {}
-  enableProdect(bool val, int ind) {
-    isEnableProdect = val;
-    index = ind;
-    update();
-  }
 
   @override
   chooseImage(BuildContext context) {
@@ -91,6 +64,9 @@ class AddprodectControllerImp extends AddProdectController {
   }
 
   @override
+  goToEditProdectSal() {}
+
+  @override
   showDateDialog(BuildContext context) {
     showDatePicker(
       context: context,
@@ -106,28 +82,17 @@ class AddprodectControllerImp extends AddProdectController {
       update();
     });
     update();
-    //  showDatePicker(context: context, initialDate: DateTime.now(), firstDate: , lastDate: )
+  }
+
+  @override
+  void onInit() {
+    selectDate = DateTime.now();
+    prodectDesc = TextEditingController();
+    daysall = TextEditingController();
+
+    farmerName = TextEditingController();
+    date = DateTime.now().toString();
+
+    super.onInit();
   }
 }
-
-// class AnimationService extends GetxService {
-//   late Animation<double> animation;
-//   late AnimationController animationController;
-
-//   void init(TickerProvider vsync) {
-//     animationController = AnimationController(
-//       vsync: vsync,
-//       duration: const Duration(milliseconds: 260),
-//     );
-
-//     final curvedAnimation =
-//         CurvedAnimation(curve: Curves.easeInOut, parent: animationController);
-//     animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
-//   }
-
-//   void startAnimation() {
-//     animationController.forward();
-//   }
-
-//   double get animationValue => animation.value;
-// }
