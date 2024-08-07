@@ -97,7 +97,7 @@ class CustomContainerAddProdect extends StatelessWidget {
               controller.showDateDialog(context);
             },
             child: CustomText(
-              title: DateFormat.yMMMMEEEEd().format(controller.selectDate),
+              title: DateFormat("yyyy-M-d").format(controller.selectDate),
               fontSize: 15,
               colorText: AppColors.black,
             ),

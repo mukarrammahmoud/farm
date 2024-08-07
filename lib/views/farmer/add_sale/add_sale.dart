@@ -1,7 +1,7 @@
 import 'package:farm/controller/farmer/add_sale_controller.dart';
 import 'package:farm/core/constant/colors.dart';
+import 'package:farm/core/constant/components/card_info_prodects.dart';
 import 'package:farm/core/constant/components/custom_text.dart';
-import 'package:farm/views/farmer/add_sale/widget/card_info_prodects.dart';
 import 'package:farm/views/farmer/add_sale/widget/custom_floatin_button.dart';
 import 'package:farm/views/farmer/home/widgets/custom_drower.dart';
 import 'package:flutter/material.dart';
@@ -36,9 +36,12 @@ class AddSalePage extends StatelessWidget {
         ),
         body: ListView.builder(
           itemCount: controller.listInfoProddect.length,
-          itemBuilder: (context, index) => CardInfoProdectsSal(
-            controller: controller,
-            index: index,
+          itemBuilder: (context, index) => CardInfoProdects(
+            goToEditProdectPage: () {
+              controller.goToEditProdectSal();
+            },
+            onChangedSwitch: (value) {},
+            isSwitchEnable: true,
             date: controller.listInfoProddect[index]["date"],
             nameFarmer: controller.listInfoProddect[index]["nameFarmer"],
             pathImage: controller.listInfoProddect[index]["image"],

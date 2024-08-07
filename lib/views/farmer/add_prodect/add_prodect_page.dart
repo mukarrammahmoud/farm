@@ -1,7 +1,7 @@
 import 'package:farm/controller/farmer/add_prodect_controller.dart';
 import 'package:farm/core/constant/colors.dart';
+import 'package:farm/core/constant/components/card_info_prodects.dart';
 import 'package:farm/core/constant/components/custom_text.dart';
-import 'package:farm/views/farmer/add_prodect/widgets/card_info_prodects.dart';
 import 'package:farm/views/farmer/add_prodect/widgets/custom_floatin_button.dart';
 import 'package:farm/views/farmer/home/widgets/custom_drower.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,6 @@ class AddProdectPage extends StatelessWidget {
         floatingActionButton: CustomFloatingActionButton(
           controller: controller,
           date: controller.date,
-        
           farnmerName: controller.farmerName,
           keyAnimation: controller.key,
           prodectDesc: controller.prodectDesc,
@@ -38,8 +37,11 @@ class AddProdectPage extends StatelessWidget {
         body: ListView.builder(
           itemCount: controller.listInfoProddect.length,
           itemBuilder: (context, index) => CardInfoProdects(
-            controller: controller,
-            index: index,
+            goToEditProdectPage: () {
+              controller.goToEditProdect();
+            },
+            isSwitchEnable: true,
+            onChangedSwitch: (value) {},
             date: controller.listInfoProddect[index]["date"],
             nameFarmer: controller.listInfoProddect[index]["nameFarmer"],
             pathImage: controller.listInfoProddect[index]["image"],

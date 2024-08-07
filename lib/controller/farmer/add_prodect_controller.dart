@@ -35,9 +35,8 @@ class AddprodectControllerImp extends AddProdectController {
 
     farmerName = TextEditingController();
     date = DateTime.now().toString();
-   
 
-    super.onInit(); 
+    super.onInit();
   }
 
   bool isEnableProdect = true;
@@ -102,7 +101,7 @@ class AddprodectControllerImp extends AddProdectController {
       if (value == null) return;
 
       selectDate = value;
-      date = DateFormat.yMMMMEEEEd().format(selectDate);
+      date = DateFormat('yyyy-M-d').format(selectDate);
       update();
     });
     update();

@@ -1,26 +1,27 @@
-import 'package:farm/controller/farmer/add_sale_controller.dart';
 import 'package:farm/core/constant/colors.dart';
 import 'package:farm/core/constant/components/custom_text.dart';
 import 'package:flutter/material.dart';
 
-class CardInfoProdectsSal extends StatelessWidget {
-  const CardInfoProdectsSal({
+class CardInfoProdects extends StatelessWidget {
+  const CardInfoProdects({
     super.key,
-    required this.controller,
+    required this.onChangedSwitch,
     required this.date,
     required this.nameFarmer,
     required this.desc,
     required this.namePodect,
     required this.pathImage,
-    required this.index,
+    required this.isSwitchEnable,
+    required this.goToEditProdectPage,
   });
-  final AddSaleControllerImp controller;
+  final void Function(bool)? onChangedSwitch;
   final String pathImage;
   final String namePodect;
   final String desc;
   final String date;
   final String nameFarmer;
-  final int index;
+  final void Function()? goToEditProdectPage;
+  final bool isSwitchEnable;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -38,9 +39,7 @@ class CardInfoProdectsSal extends StatelessWidget {
                     Row(
                       children: [
                         IconButton(
-                          onPressed: () {
-                            controller.goToEditProdectSal();
-                          },
+                          onPressed: () {},
                           icon: const Icon(
                             Icons.edit_document,
                             size: 30,
@@ -53,15 +52,12 @@ class CardInfoProdectsSal extends StatelessWidget {
                       ],
                     ),
                     Switch(
-                      key: Key(index.toString()),
                       inactiveThumbColor: AppColors.white,
                       inactiveTrackColor: AppColors.black,
                       activeColor: AppColors.white,
                       activeTrackColor: AppColors.greenText,
-                      value: controller.isEnableProdect,
-                      onChanged: (value) {
-                        // controller.enableProdect(value, index);
-                      },
+                      value: isSwitchEnable,
+                      onChanged: onChangedSwitch,
                     )
                   ],
                 ),
