@@ -46,6 +46,8 @@ dependencies:
   flutter_map:
   location:
   latlong2:
+  flutter_geocoder:
+  geocoding: 
   step_tracker:
   easy_stepper:
   image_picker: ^1.0.7 

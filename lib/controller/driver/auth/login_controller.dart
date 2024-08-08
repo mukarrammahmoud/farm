@@ -31,4 +31,11 @@ class LoginControllerImp extends LoginController {
   goToHome() {
     Get.offAllNamed(AppRout.homeDriver);
   }
+
+  @override
+  void dispose() {
+    password.dispose();
+    email.dispose();
+    super.dispose();
+  }
 }

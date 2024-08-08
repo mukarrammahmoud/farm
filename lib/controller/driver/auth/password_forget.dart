@@ -18,4 +18,9 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
   goToNewPassword() {
     Get.toNamed(AppRout.restPassword);
   }
+    @override
+  void dispose() {
+    email.dispose();
+    super.dispose();
+  }
 }

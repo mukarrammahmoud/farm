@@ -15,7 +15,7 @@ class TrackingDemand extends StatelessWidget {
             return true;
           },
           animationCurve: Curves.easeInCirc,
-          index: 0,
+          index: 1,
           backgroundColor: Colors.transparent,
           buttonBackgroundColor: AppColors.buttonColor,
           color: AppColors.greyText,
@@ -70,7 +70,7 @@ class TrackingDemand extends StatelessWidget {
                       activeStepBackgroundColor: AppColors.greyText,
                       finishedStepBackgroundColor: AppColors.buttonColor,
                       unreachedStepBackgroundColor: AppColors.greyText,
-                      alignment: Alignment.centerRight,
+                      alignment: Alignment.center,
                       direction: Axis.vertical,
                       textDirection: TextDirection.rtl,
 

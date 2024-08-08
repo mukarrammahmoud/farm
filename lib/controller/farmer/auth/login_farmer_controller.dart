@@ -31,4 +31,10 @@ class LoginFarmerControllerImp extends LoginFarmerController {
   goToHome() {
     Get.offAllNamed(AppRout.homeFarmer);
   }
+    @override
+  void dispose() {
+    password.dispose();
+    nameUser.dispose();
+    super.dispose();
+  }
 }

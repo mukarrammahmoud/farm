@@ -26,6 +26,7 @@ class ContainerLog extends StatelessWidget {
         child: CustomText(
           title: title,
           fontSize: fontSize,
+          colorText: AppColors.white,
         ),
       ),
     );

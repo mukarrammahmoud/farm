@@ -107,26 +107,13 @@ class AddprodectControllerImp extends AddProdectController {
     update();
     //  showDatePicker(context: context, initialDate: DateTime.now(), firstDate: , lastDate: )
   }
+    @override
+  void dispose() {
+    prodectDesc.dispose();
+    farmerName.dispose();
+ 
+ 
+    super.dispose();
+  }
 }
 
-// class AnimationService extends GetxService {
-//   late Animation<double> animation;
-//   late AnimationController animationController;
-
-//   void init(TickerProvider vsync) {
-//     animationController = AnimationController(
-//       vsync: vsync,
-//       duration: const Duration(milliseconds: 260),
-//     );
-
-//     final curvedAnimation =
-//         CurvedAnimation(curve: Curves.easeInOut, parent: animationController);
-//     animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
-//   }
-
-//   void startAnimation() {
-//     animationController.forward();
-//   }
-
-//   double get animationValue => animation.value;
-// }

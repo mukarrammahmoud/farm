@@ -78,7 +78,7 @@ class AddSaleControllerImp extends AddSaleController {
       if (value == null) return;
 
       selectDate = value;
-      date = DateFormat.yMMMMEEEEd().format(selectDate);
+      date = DateFormat('yyyy-M-d').format(selectDate);
       update();
     });
     update();
@@ -94,5 +94,12 @@ class AddSaleControllerImp extends AddSaleController {
     date = DateTime.now().toString();
 
     super.onInit();
+  }
+    @override
+  void dispose() {
+    prodectDesc.dispose();
+    farmerName.dispose();
+    daysall.dispose();
+    super.dispose();
   }
 }

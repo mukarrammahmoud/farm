@@ -87,7 +87,7 @@ class HomePageDriver extends StatelessWidget {
                 },
               )
             : controller.index == 1
-                ? const LocationMap()
+                ?  LocationMap()
                 : ListView.builder(
                     itemCount: 5,
                     itemBuilder: (context, index) => const ListOfDemand(

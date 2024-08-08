@@ -97,22 +97,12 @@ class CustomContainerAddProdectSale extends StatelessWidget {
               controller.showDateDialog(context);
             },
             child: CustomText(
-              title: DateFormat.yMMMMEEEEd().format(controller.selectDate),
+              title: DateFormat("yyyy-M-d").format(controller.selectDate),
               fontSize: 15,
               colorText: AppColors.black,
             ),
           ),
         ),
-        // CustomTextField(
-        //   fillColor: AppColors.fiilColorTextField,
-        //   iconPrifex: const Icon(Icons.date_range),
-        //   hintText: "اليوم   /     التاريخ /      السنه",
-        //   isVissabileContent: false,
-        //   validate: (val) {
-        //     return null;
-        //   },
-        //   controller: ,
-        // ),
         CustomTextField(
           fillColor: AppColors.fiilColorTextField,
           iconPrifex: const Icon(Icons.edit),

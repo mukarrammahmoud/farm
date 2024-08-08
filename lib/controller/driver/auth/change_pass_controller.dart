@@ -26,4 +26,10 @@ class ChangePasswordControllerImp extends ChangePasswordController {
     //     dialogType: DialogType.INFO,
     //     duration: 3000);
   }
+    @override
+  void dispose() {
+    newPassword.dispose();
+    confirmPassword.dispose();
+    super.dispose();
+  }
 }
