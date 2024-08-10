@@ -48,11 +48,15 @@ class CustomFloatingActionButtonSale extends StatelessWidget {
             ),
             width: 300,
             child: CustomContainerAddProdectSale(
-                controller: controller,
-                date: date,
-                farnmerName: farnmerName,
-                prodectDesc: prodectDesc,
-                title: title),
+              controller: controller,
+              date: date,
+              farnmerName: farnmerName,
+              prodectDesc: prodectDesc,
+              title: title,
+              onPressedSaved: () {
+                controller.savedData();
+              },
+            ),
           ),
         ],
         key: keyAnimation,

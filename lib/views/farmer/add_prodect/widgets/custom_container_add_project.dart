@@ -1,26 +1,28 @@
 import 'package:farm/controller/farmer/add_prodect_controller.dart';
 import 'package:farm/core/constant/colors.dart';
 import 'package:farm/core/constant/components/custom_text.dart';
+import 'package:farm/views/driver/auth/widget/container_log.dart';
 import 'package:farm/views/driver/auth/widget/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class CustomContainerAddProdect extends StatelessWidget {
-  const CustomContainerAddProdect({
-    super.key,
-    required this.date,
-    required this.controller,
-    this.day,
-    required this.farnmerName,
-    required this.prodectDesc,
-    required this.title,
-  });
+  const CustomContainerAddProdect(
+      {super.key,
+      required this.date,
+      required this.controller,
+      this.day,
+      required this.farnmerName,
+      required this.prodectDesc,
+      required this.title,
+      required this.onPressedSaved});
   final TextEditingController farnmerName;
   final String date;
   final String title;
   final TextEditingController prodectDesc;
   final TextEditingController? day;
   final AddprodectControllerImp controller;
+  final void Function()? onPressedSaved;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -122,6 +124,10 @@ class CustomContainerAddProdect extends StatelessWidget {
             return null;
           },
           controller: prodectDesc,
+        ),
+        ContainerLog(
+          onPressed: onPressedSaved,
+          title: "حفظ",
         ),
       ],
     );

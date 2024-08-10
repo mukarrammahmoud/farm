@@ -16,17 +16,31 @@ class ContainerLog extends StatelessWidget {
   final double widthButton;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: widthButton,
-      child: ElevatedButton(
-        style: const ButtonStyle(
-          backgroundColor: MaterialStatePropertyAll(AppColors.buttonColor),
-        ),
-        onPressed: onPressed,
-        child: CustomText(
-          title: title,
-          fontSize: fontSize,
-          colorText: AppColors.white,
+    return InkWell(
+      onTap: onPressed,
+      child: SizedBox(
+        width: widthButton,
+        child: Container(
+          alignment: Alignment.center,
+          width: widthButton,
+          padding: const EdgeInsets.all(8),
+          margin: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: AppColors.splashColor,
+            borderRadius: BorderRadius.circular(12),
+            // gradient: const LinearGradient(
+            //   colors: [
+            //     AppColors.buttonColorOne,
+            //     AppColors.buttonColorTow,
+            //     AppColors.buttonColorThree,
+            //   ],
+            // ),
+          ),
+          child: CustomText(
+            title: title,
+            fontSize: fontSize,
+            colorText: AppColors.white,
+          ),
         ),
       ),
     );

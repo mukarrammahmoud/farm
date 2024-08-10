@@ -50,7 +50,7 @@ class HomePageDriver extends StatelessWidget {
             animationCurve: Curves.easeInCirc,
             index: controller.index,
             backgroundColor: Colors.transparent,
-            buttonBackgroundColor: AppColors.buttonColor,
+            buttonBackgroundColor: AppColors.splashColor,
             color: AppColors.greyText,
             animationDuration: const Duration(milliseconds: 100),
             items: const <Widget>[
@@ -63,13 +63,10 @@ class HomePageDriver extends StatelessWidget {
               IconBottomBar(
                 iconName: Icons.favorite,
               ),
-              // Icon(Icons.shopping_cart_rounded,),
-              // Icon(Icons.home),
-              // Icon(Icons.favorite),
+            
             ],
             onTap: (index) {
               controller.updateIndex(index);
-              print(controller.index);
             }),
         body: controller.index == 0
             ? ListView.builder(
@@ -87,7 +84,7 @@ class HomePageDriver extends StatelessWidget {
                 },
               )
             : controller.index == 1
-                ?  LocationMap()
+                ? const LocationMap()
                 : ListView.builder(
                     itemCount: 5,
                     itemBuilder: (context, index) => const ListOfDemand(

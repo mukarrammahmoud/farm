@@ -10,7 +10,6 @@ class CustomFloatingActionButton extends StatelessWidget {
     required this.controller,
     required this.keyAnimation,
     required this.date,
-   
     required this.farnmerName,
     required this.prodectDesc,
     required this.title,
@@ -49,9 +48,11 @@ class CustomFloatingActionButton extends StatelessWidget {
             ),
             width: 300,
             child: CustomContainerAddProdect(
+                onPressedSaved: () {
+                  controller.savedData();
+                },
                 controller: controller,
                 date: date,
-               
                 farnmerName: farnmerName,
                 prodectDesc: prodectDesc,
                 title: title),

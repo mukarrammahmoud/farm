@@ -1,6 +1,7 @@
 import 'package:farm/controller/driver/auth/password_forget.dart';
 import 'package:farm/core/constant/colors.dart';
 import 'package:farm/core/constant/components/custom_text.dart';
+import 'package:farm/core/functions/valid_input.dart';
 import 'package:farm/views/driver/auth/widget/container_log.dart';
 import 'package:farm/views/driver/auth/widget/text_field.dart';
 import 'package:flutter/material.dart';
@@ -26,52 +27,55 @@ class ContainerForgetPass extends StatelessWidget {
       decoration: const BoxDecoration(
           color: AppColors.containerAuthColor,
           borderRadius: BorderRadius.all(Radius.circular(10))),
-      child: Column(children: [
-        const CustomText(
-          title: "نسيت كلمة المرور",
-          fontSize: 20,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        const CustomText(
-          title: "ادخل بريدك الالكتروني لاستعادة كلمة المرور",
-          fontSize: 15,
-          colorText: AppColors.greenText,
-        ),
-        const SizedBox(
-          height: 18,
-        ),
-        CustomTextField(
-          iconPrifex: const Icon(
-            Icons.lock,
+      child: Form(
+        key: controller.formstate,
+        child: Column(children: [
+          const CustomText(
+            title: "نسيت كلمة المرور",
+            fontSize: 20,
           ),
-          padding: 2,
-          hintText: "البريد الالكتروني",
-          isVissabileContent: false,
-          validate: (val) {
-            return null;
-          },
-          controller: controller.email,
-        ),
-        // InkWell(
-        //   onTap: () {
-        //     controller.goToForgitPassword();
-        //   },
-        //   child: const Padding(
-        //     padding: EdgeInsets.only(right: 25.0, bottom: 20, top: 10),
-        //     child: Align(
-        //       alignment: Alignment.centerRight,
-        //       child: CustomText(
-        //         title: "هل نسيت كلمة المرور؟!",
-        //         colorText: AppColors.greenText,
-        //         fontSize: 12,
-        //       ),
-        //     ),
-        //   ),
-        // ),
-        ContainerLog(onPressed: onPressedButton, title: titleButton)
-      ]),
+          const SizedBox(
+            height: 10,
+          ),
+          const CustomText(
+            title: "ادخل بريدك الالكتروني لاستعادة كلمة المرور",
+            fontSize: 15,
+            colorText: AppColors.greenText,
+          ),
+          const SizedBox(
+            height: 18,
+          ),
+          CustomTextField(
+            iconPrifex: const Icon(
+              Icons.lock,
+            ),
+            padding: 2,
+            hintText: "البريد الالكتروني",
+            isVissabileContent: false,
+            validate: (val) {
+              return validInput(val!, 11, 25, "email");
+            },
+            controller: controller.email,
+          ),
+          // InkWell(
+          //   onTap: () {
+          //     controller.goToForgitPassword();
+          //   },
+          //   child: const Padding(
+          //     padding: EdgeInsets.only(right: 25.0, bottom: 20, top: 10),
+          //     child: Align(
+          //       alignment: Alignment.centerRight,
+          //       child: CustomText(
+          //         title: "هل نسيت كلمة المرور؟!",
+          //         colorText: AppColors.greenText,
+          //         fontSize: 12,
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          ContainerLog(onPressed: onPressedButton, title: titleButton)
+        ]),
+      ),
     );
   }
 }

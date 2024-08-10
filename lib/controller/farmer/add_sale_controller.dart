@@ -11,12 +11,15 @@ abstract class AddSaleController extends GetxController {
   goToEditProdectSal();
   showDateDialog(BuildContext context);
   chooseImage(BuildContext context);
+  savedData();
 }
 
 class AddSaleControllerImp extends AddSaleController {
   final String titleAppBar = "العروض";
   final GlobalKey<AnimatedFloatingActionButtonState> key =
       GlobalKey<AnimatedFloatingActionButtonState>();
+        GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
   late TextEditingController farmerName;
   late TextEditingController prodectDesc;
   late TextEditingController daysall;
@@ -95,11 +98,17 @@ class AddSaleControllerImp extends AddSaleController {
 
     super.onInit();
   }
-    @override
+
+  @override
   void dispose() {
     prodectDesc.dispose();
     farmerName.dispose();
     daysall.dispose();
     super.dispose();
+  }
+  
+  @override
+  savedData() {
+
   }
 }

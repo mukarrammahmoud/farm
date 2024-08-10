@@ -86,7 +86,7 @@ class CardInfoProdects extends StatelessWidget {
                         ),
                         CircleAvatar(
                           // maxRadius: 30,
-                          backgroundColor: AppColors.buttonColor,
+                          backgroundColor: AppColors.backGroundDrawerColorTow,
                           child: ClipRRect(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             borderRadius: BorderRadius.circular(60),

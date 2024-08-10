@@ -9,11 +9,11 @@ abstract class ChooseController extends GetxController {
 class ChooseControllerImp extends ChooseController {
   @override
   goToDriverPage() {
-    Get.offNamed(AppRout.login);
+    Get.toNamed(AppRout.login);
   }
 
   @override
   goToFarmerPage() {
-    Get.offNamed(AppRout.loginFarmer);
+    Get.toNamed(AppRout.loginFarmer);
   }
 }

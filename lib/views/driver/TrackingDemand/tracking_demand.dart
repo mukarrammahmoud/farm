@@ -17,7 +17,7 @@ class TrackingDemand extends StatelessWidget {
           animationCurve: Curves.easeInCirc,
           index: 1,
           backgroundColor: Colors.transparent,
-          buttonBackgroundColor: AppColors.buttonColor,
+          buttonBackgroundColor: AppColors.greenText,
           color: AppColors.greyText,
           animationDuration: const Duration(milliseconds: 100),
           items: const <Widget>[
@@ -68,7 +68,7 @@ class TrackingDemand extends StatelessWidget {
                   EasyStepper(
                       disableScroll: false,
                       activeStepBackgroundColor: AppColors.greyText,
-                      finishedStepBackgroundColor: AppColors.buttonColor,
+                      finishedStepBackgroundColor: AppColors.greenText,
                       unreachedStepBackgroundColor: AppColors.greyText,
                       alignment: Alignment.center,
                       direction: Axis.vertical,

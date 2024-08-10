@@ -11,11 +11,14 @@ abstract class AddProdectController extends GetxController {
   goToEditProdect();
   showDateDialog(BuildContext context);
   chooseImage(BuildContext context);
+  savedData();
 }
 
 class AddprodectControllerImp extends AddProdectController {
   final GlobalKey<AnimatedFloatingActionButtonState> key =
       GlobalKey<AnimatedFloatingActionButtonState>();
+        GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
   late TextEditingController farmerName;
   late TextEditingController prodectDesc;
 
@@ -107,13 +110,15 @@ class AddprodectControllerImp extends AddProdectController {
     update();
     //  showDatePicker(context: context, initialDate: DateTime.now(), firstDate: , lastDate: )
   }
-    @override
+
+  @override
   void dispose() {
     prodectDesc.dispose();
     farmerName.dispose();
- 
- 
+
     super.dispose();
   }
-}
 
+  @override
+  savedData() {}
+}

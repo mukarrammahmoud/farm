@@ -4,6 +4,7 @@ class AppRout {
   static const String login = "/login";
   static const String signup = "/signup";
   static const String homeDriver = "/homeDriver";
+  static const String doneConfirmPassWord = "/doneConfirmPassWord";
 
   static const String forgetPassword = "/forgetpassword";
   static const String verfiyCode = "/verfiycode";
@@ -19,4 +20,8 @@ class AppRout {
   static const String truckingDriver = "/truckingDriver";
   static const String comments = "/comments";
   static const String showProdect = "/showProdect";
+  static const String profileUser = "/profileUser";
+  static const String manageAddresses = "/manageAddresses";
+  // static const String mYProfile = "/manageAddresses";
+  static const String orderList = "/orderList";
 }

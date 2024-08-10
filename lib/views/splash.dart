@@ -8,6 +8,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // MymiDllWare mymiDllWare=Get.find();
     return AnimatedSplashScreen(
       splash: 'assets/images/bigcart.png',
       nextScreen: const ChooseUser(),

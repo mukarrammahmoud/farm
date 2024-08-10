@@ -5,11 +5,14 @@ import 'package:farm/views/driver/auth/widget/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../../driver/auth/widget/container_log.dart';
+
 class CustomContainerAddProdectSale extends StatelessWidget {
   const CustomContainerAddProdectSale({
     super.key,
     required this.date,
     required this.controller,
+    required this.onPressedSaved,
     this.day,
     required this.farnmerName,
     required this.prodectDesc,
@@ -21,6 +24,7 @@ class CustomContainerAddProdectSale extends StatelessWidget {
   final TextEditingController prodectDesc;
   final TextEditingController? day;
   final AddSaleControllerImp controller;
+  final void Function()? onPressedSaved;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -122,6 +126,10 @@ class CustomContainerAddProdectSale extends StatelessWidget {
             return null;
           },
           controller: day,
+        ),
+           ContainerLog(
+          onPressed: onPressedSaved,
+          title: "حفظ",
         ),
       ],
     );
