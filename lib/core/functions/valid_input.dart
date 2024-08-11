@@ -1,36 +1,35 @@
 import 'package:get/get_utils/get_utils.dart';
 
 validInput(String val, int min, int max, String type) {
+  if (val.isEmpty) {
+    return "الحقل فارغ";
+  }
   if (type == "username") {
     if (!GetUtils.isUsername(val)) {
-      return "35".tr;
+      return "تنسيق الاسم غير مقبول".tr;
     }
   }
 
   if (type == "email") {
     if (!GetUtils.isEmail(val)) {
-      return "36".tr;
+      return "تنسيق الايميل غير صحيح".tr;
     }
   }
   if (type == "phone") {
     if (!GetUtils.isPhoneNumber(val)) {
-      return "37".tr;
+      return "تنسيق الرقم غير صحيح".tr;
     }
   }
   if (type == "password") {
     if (!GetUtils.isPassport(val)) {
-      return "41".tr;
+      return "الرجاء ادخال ارقام وحروف ".tr;
     }
   }
 
-  if (val.isEmpty) {
-    return "40".tr;
-  }
-
   if (val.length < min) {
-    return "38$min".tr;
+    return "لا يمكن ان يكون المدخل اصغر من$min".tr;
   }
   if (val.length > max) {
-    return "39$max".tr;
+    return "لا يمكن ان يكون المدخل اكبر من $max".tr;
   }
 }

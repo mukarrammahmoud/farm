@@ -126,10 +126,8 @@ class TruckingDriver extends StatelessWidget {
                       title: 'تسليم الطلب ',
                     ),
                   ],
-                  onStepReached: (index) {
-                    print(index);
-                  }
-                  // setState(() => activeStep = index),
+                  onStepReached: (index) {}
+                 
                   ),
             ],
           ),

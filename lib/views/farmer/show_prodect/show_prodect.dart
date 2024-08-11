@@ -1,8 +1,8 @@
 import 'package:farm/controller/farmer/show_prodect_controller.dart';
 import 'package:farm/core/constant/colors.dart';
+import 'package:farm/core/constant/components/card_info_prodects.dart';
 import 'package:farm/core/constant/components/custom_text.dart';
 import 'package:farm/views/driver/auth/widget/text_field.dart';
-import 'package:farm/core/constant/components/card_info_prodects.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -55,7 +55,13 @@ class ShowProdect extends StatelessWidget {
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height,
-                child: ListView.builder(
+                child:
+                    //  ListView.builder(
+                    //   itemCount: 7,
+                    //   itemBuilder: (context, index) => const CustomShimmer(),
+                    // ),
+
+                    ListView.builder(
                   itemCount: controller.listInfoProddect.length,
                   itemBuilder: (context, index) => CardInfoProdects(
                     goToEditProdectPage: () {
@@ -72,7 +78,7 @@ class ShowProdect extends StatelessWidget {
                     isSwitchEnable: true,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

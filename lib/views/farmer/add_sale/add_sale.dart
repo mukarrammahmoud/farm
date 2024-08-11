@@ -40,8 +40,10 @@ class AddSalePage extends StatelessWidget {
             goToEditProdectPage: () {
               controller.goToEditProdectSal();
             },
-            onChangedSwitch: (value) {},
-            isSwitchEnable: true,
+            onChangedSwitch: (value) {
+              controller.changeVisablity(index, value);
+            },
+            isSwitchEnable: controller.listInfoProddect[index]["visable"],
             date: controller.listInfoProddect[index]["date"],
             nameFarmer: controller.listInfoProddect[index]["nameFarmer"],
             pathImage: controller.listInfoProddect[index]["image"],

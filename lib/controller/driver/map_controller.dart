@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, depend_on_referenced_packages
 
 import 'dart:convert';
 
@@ -92,7 +92,6 @@ class MapControllerImp extends MyMapController {
     addresses = await Geocoder.local.findAddressesFromCoordinates(coordinates);
     first = addresses.first;
     update();
-    print("${first.subLocality} : ${first.featureName}");
   }
 
   @override
@@ -106,7 +105,6 @@ class MapControllerImp extends MyMapController {
         await placemarkFromCoordinates(latitude, longitude);
     update();
 
-    print(placemarks);
   }
 
   @override

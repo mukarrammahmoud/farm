@@ -18,7 +18,7 @@ class AddSaleControllerImp extends AddSaleController {
   final String titleAppBar = "العروض";
   final GlobalKey<AnimatedFloatingActionButtonState> key =
       GlobalKey<AnimatedFloatingActionButtonState>();
-        GlobalKey<FormState> formstate = GlobalKey<FormState>();
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
   late TextEditingController farmerName;
   late TextEditingController prodectDesc;
@@ -30,7 +30,7 @@ class AddSaleControllerImp extends AddSaleController {
   bool isEnableProdect = true;
   List listInfoProddect = [
     {
-      "id": 0,
+      "visable": false,
       "image": "assets/images/apple.png",
       "nameFarmer": "مزرعة محمد علي",
       "nameProdect": "تفاح احمر ",
@@ -39,7 +39,7 @@ class AddSaleControllerImp extends AddSaleController {
           "قطوف التفاح  بشكلها المميز الطازج وطعمها اللذيذ وهذا بجانب احتوائها على العديد من الفيتامينات والعناصر المغذية لصحة الجسم"
     },
     {
-      "id": 1,
+      "visable": true,
       "image": "assets/images/broccoli.png",
       "nameFarmer": "مزرعة محمد علي",
       "nameProdect": "كرفس",
@@ -47,7 +47,25 @@ class AddSaleControllerImp extends AddSaleController {
       "description":
           "قطوف التفاح  بشكلها المميز الطازج وطعمها اللذيذ وهذا بجانب احتوائها على العديد من الفيتامينات والعناصر المغذية لصحة الجسم"
     },
+    {
+      "visable": true,
+      "image": "assets/images/apple.png",
+      "nameFarmer": "مزرعة محمد علي",
+      "nameProdect": "تفاح احمر ",
+      "date": " 2-5-2024",
+      "description":
+          "قطوف التفاح  بشكلها المميز الطازج وطعمها اللذيذ وهذا بجانب احتوائها على العديد من الفيتامينات والعناصر المغذية لصحة الجسم"
+    },
   ];
+  changeVisablity(int ind, bool val) {
+    for (int i = 0; i <= listInfoProddect.length - 1; i++) {
+      if (i == ind) {
+        listInfoProddect[i]["visable"] = val;
+
+        update();
+      }
+    }
+  }
 
   @override
   chooseImage(BuildContext context) {
@@ -106,9 +124,18 @@ class AddSaleControllerImp extends AddSaleController {
     daysall.dispose();
     super.dispose();
   }
-  
+
   @override
   savedData() {
+    if (formstate.currentState!.validate()) {
+      if (myFile != null) {
+        prodectDesc.clear();
+        farmerName.clear();
+        daysall.clear();
+        key.currentState!.closeFABs();
 
+        print("valid");
+      }
+    }
   }
 }

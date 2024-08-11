@@ -24,7 +24,7 @@ class CustomFloatingActionButtonSale extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedFloatingActionButton(
-        curve: Curves.easeInCirc,
+        curve: Curves.elasticOut,
         //Fab list
         fabButtons: <Widget>[
           const SizedBox(),
@@ -32,7 +32,7 @@ class CustomFloatingActionButtonSale extends StatelessWidget {
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.greyText.withOpacity(0.4),
+                  color: AppColors.greyText.withOpacity(0.2),
                   offset: const Offset(4.2, 4.2),
                   blurStyle: BlurStyle.solid,
                   spreadRadius: 0.3,
@@ -48,6 +48,7 @@ class CustomFloatingActionButtonSale extends StatelessWidget {
             ),
             width: 300,
             child: CustomContainerAddProdectSale(
+              day: controller.daysall,
               controller: controller,
               date: date,
               farnmerName: farnmerName,

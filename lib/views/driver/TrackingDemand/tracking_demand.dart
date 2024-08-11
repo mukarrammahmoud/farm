@@ -130,7 +130,6 @@ class TrackingDemand extends StatelessWidget {
                         ),
                       ],
                       onStepReached: (index) {
-                        print(index);
                       }
                       // setState(() => activeStep = index),
                       ),

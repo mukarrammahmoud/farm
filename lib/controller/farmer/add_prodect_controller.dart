@@ -17,7 +17,7 @@ abstract class AddProdectController extends GetxController {
 class AddprodectControllerImp extends AddProdectController {
   final GlobalKey<AnimatedFloatingActionButtonState> key =
       GlobalKey<AnimatedFloatingActionButtonState>();
-        GlobalKey<FormState> formstate = GlobalKey<FormState>();
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
   late TextEditingController farmerName;
   late TextEditingController prodectDesc;
@@ -30,6 +30,15 @@ class AddprodectControllerImp extends AddProdectController {
   // final AnimationService animationService = Get.put(AnimationService());
   // late Animation<double> animation;
   // late AnimationController animationController;
+  changeVisablity(int ind, bool val) {
+    for (int i = 0; i <= listInfoProddect.length - 1; i++) {
+      if (i == ind) {
+        listInfoProddect[i]["visable"] = val;
+
+        update();
+      }
+    }
+  }
 
   @override
   void onInit() {
@@ -46,7 +55,7 @@ class AddprodectControllerImp extends AddProdectController {
   int index = 0;
   List listInfoProddect = [
     {
-      "id": 0,
+      "visable": false,
       "image": "assets/images/apple.png",
       "nameFarmer": "مزرعة محمد علي",
       "nameProdect": "تفاح احمر ",
@@ -55,7 +64,7 @@ class AddprodectControllerImp extends AddProdectController {
           "قطوف التفاح  بشكلها المميز الطازج وطعمها اللذيذ وهذا بجانب احتوائها على العديد من الفيتامينات والعناصر المغذية لصحة الجسم"
     },
     {
-      "id": 1,
+      "visable": true,
       "image": "assets/images/apple.png",
       "nameFarmer": "مزرعة محمد علي",
       "nameProdect": "تفاح احمر ",
@@ -69,11 +78,11 @@ class AddprodectControllerImp extends AddProdectController {
 
   @override
   goToEditProdect() {}
-  enableProdect(bool val, int ind) {
-    isEnableProdect = val;
-    index = ind;
-    update();
-  }
+  // enableProdect(bool val, int ind) {
+  //   isEnableProdect = val;
+  //   index = ind;
+  //   update();
+  // }
 
   @override
   chooseImage(BuildContext context) {
@@ -120,5 +129,14 @@ class AddprodectControllerImp extends AddProdectController {
   }
 
   @override
-  savedData() {}
+  savedData() {
+    if (formstate.currentState!.validate()) {
+      if (myFile != null) {
+        prodectDesc.clear();
+        farmerName.clear();
+
+        key.currentState!.closeFABs();
+      } else {}
+    }
+  }
 }

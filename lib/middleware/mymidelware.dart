@@ -10,16 +10,15 @@ class MymiDllWare extends GetMiddleware {
   MyServices myServices = Get.find();
   @override
   RouteSettings? redirect(String? route) {
-    print("llllllllllllllllllll");
     if (myServices.sharedPreferences.getString("login") == "done" &&
         myServices.sharedPreferences.getString("type") == "farmer") {
-      print(myServices.sharedPreferences.getString("type") == "farmer");
       return const RouteSettings(name: AppRout.homeFarmer);
     }
     if (myServices.sharedPreferences.getString("login") == "done" &&
         myServices.sharedPreferences.getString("type") == "driver") {
       return const RouteSettings(name: AppRout.homeDriver);
     }
+  
     return null;
   }
 }

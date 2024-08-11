@@ -1,6 +1,7 @@
 import 'package:farm/controller/farmer/add_sale_controller.dart';
 import 'package:farm/core/constant/colors.dart';
 import 'package:farm/core/constant/components/custom_text.dart';
+import 'package:farm/core/functions/valid_input.dart';
 import 'package:farm/views/driver/auth/widget/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -13,7 +14,7 @@ class CustomContainerAddProdectSale extends StatelessWidget {
     required this.date,
     required this.controller,
     required this.onPressedSaved,
-    this.day,
+  required  this.day,
     required this.farnmerName,
     required this.prodectDesc,
     required this.title,
@@ -22,116 +23,119 @@ class CustomContainerAddProdectSale extends StatelessWidget {
   final String date;
   final String title;
   final TextEditingController prodectDesc;
-  final TextEditingController? day;
+  final TextEditingController day;
   final AddSaleControllerImp controller;
   final void Function()? onPressedSaved;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            CustomText(
-              title: title,
-              fontSize: 12,
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Stack(clipBehavior: Clip.none, children: [
-              CircleAvatar(
-                maxRadius: 35,
-                backgroundColor: AppColors.containerAuthColor,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: controller.myFile == null
-                      ? Image.asset(
-                          "assets/images/apple.png",
-                          height: 200,
-                          width: 200,
-                          fit: BoxFit.cover,
-                        )
-                      : Image.file(
-                          controller.myFile!,
-                          height: 200,
-                          width: 200,
-                          fit: BoxFit.cover,
-                        ),
-                ),
+    return Form(
+      key: controller.formstate,
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              CustomText(
+                title: title,
+                fontSize: 12,
               ),
-              Positioned(
-                bottom: -15,
-                right: 2,
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.add_a_photo_sharp,
-                    size: 16,
-                    color: AppColors.splashColor,
+              const SizedBox(
+                width: 10,
+              ),
+              Stack(clipBehavior: Clip.none, children: [
+                CircleAvatar(
+                  maxRadius: 35,
+                  backgroundColor: AppColors.containerAuthColor,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: controller.myFile == null
+                        ? Image.asset(
+                            "assets/images/apple.png",
+                            height: 200,
+                            width: 200,
+                            fit: BoxFit.cover,
+                          )
+                        : Image.file(
+                            controller.myFile!,
+                            height: 200,
+                            width: 200,
+                            fit: BoxFit.cover,
+                          ),
                   ),
-                  onPressed: () {
-                    controller.chooseImage(context);
-                    // await getImage();
-                  },
                 ),
-              )
-            ]),
-          ],
-        ),
-        CustomTextField(
-          fillColor: AppColors.fiilColorTextField,
-          iconPrifex: const Icon(Icons.edit),
-          hintText: "اسم المزرعة",
-          isVissabileContent: false,
-          validate: (val) {
-            return null;
-          },
-          controller: farnmerName,
-        ),
-        Container(
-          alignment: Alignment.center,
-          margin: const EdgeInsets.symmetric(horizontal: 18),
-          height: 40,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            color: AppColors.fiilColorTextField,
+                Positioned(
+                  bottom: -15,
+                  right: 2,
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.add_a_photo_sharp,
+                      size: 16,
+                      color: AppColors.splashColor,
+                    ),
+                    onPressed: () {
+                      controller.chooseImage(context);
+                      // await getImage();
+                    },
+                  ),
+                )
+              ]),
+            ],
           ),
-          child: InkWell(
-            onTap: () {
-              controller.showDateDialog(context);
+          CustomTextField(
+            fillColor: AppColors.fiilColorTextField,
+            iconPrifex: const Icon(Icons.edit),
+            hintText: "اسم المزرعة",
+            isVissabileContent: false,
+            validate: (val) {
+              return validInput(val!, 3, 20, "username");
             },
-            child: CustomText(
-              title: DateFormat("yyyy-M-d").format(controller.selectDate),
-              fontSize: 15,
-              colorText: AppColors.black,
+            controller: farnmerName,
+          ),
+          Container(
+            alignment: Alignment.center,
+            margin: const EdgeInsets.symmetric(horizontal: 18),
+            height: 40,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              color: AppColors.fiilColorTextField,
+            ),
+            child: InkWell(
+              onTap: () {
+                controller.showDateDialog(context);
+              },
+              child: CustomText(
+                title: DateFormat("yyyy-M-d").format(controller.selectDate),
+                fontSize: 15,
+                colorText: AppColors.black,
+              ),
             ),
           ),
-        ),
-        CustomTextField(
-          fillColor: AppColors.fiilColorTextField,
-          iconPrifex: const Icon(Icons.edit),
-          hintText: "وصف المنتج ",
-          isVissabileContent: false,
-          validate: (val) {
-            return null;
-          },
-          controller: prodectDesc,
-        ),
-        CustomTextField(
-          fillColor: AppColors.fiilColorTextField,
-          iconPrifex: const Icon(Icons.edit),
-          hintText: "عرض اليوم",
-          isVissabileContent: false,
-          validate: (val) {
-            return null;
-          },
-          controller: day,
-        ),
-           ContainerLog(
-          onPressed: onPressedSaved,
-          title: "حفظ",
-        ),
-      ],
+          CustomTextField(
+            fillColor: AppColors.fiilColorTextField,
+            iconPrifex: const Icon(Icons.edit),
+            hintText: "وصف المنتج ",
+            isVissabileContent: false,
+            validate: (val) {
+              return validInput(val!, 3, 20, "username");
+            },
+            controller: prodectDesc,
+          ),
+          CustomTextField(
+            fillColor: AppColors.fiilColorTextField,
+            iconPrifex: const Icon(Icons.edit),
+            hintText: "عرض اليوم",
+            isVissabileContent: false,
+            validate: (val) {
+              return validInput(val!, 3, 20, "username");
+            },
+            controller: day,
+          ),
+          ContainerLog(
+            onPressed: onPressedSaved,
+            title: "حفظ",
+          ),
+        ],
+      ),
     );
   }
 }
